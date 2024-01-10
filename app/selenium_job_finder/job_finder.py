@@ -17,13 +17,10 @@ URL = "https://jobs.dou.ua/"
 
 
 def get_driver():
-    chromedriver_path = "./chromedriver"
     options = Options()
     options.add_experimental_option("detach", True)
     options.add_argument("--headless")
-    service = Service(
-        executable_path=chromedriver_path)
-    driver = Chrome(service=service, options=options)
+    driver = Chrome(options=options)
     return driver
 
 
