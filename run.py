@@ -3,6 +3,7 @@ from flask import Flask, request, render_template, send_file
 from app.selenium_job_finder.job_finder import find_jobs
 
 app = Flask(__name__, template_folder="app/templates")
+app.static_folder = "app/static"
 
 
 @app.route("/", methods=["GET", "POST"])

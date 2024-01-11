@@ -2,12 +2,13 @@
 <html>
 <head>
     <title>Dou Jobs Form</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}" >
 </head>
 <body>
     <h1>Dou Jobs Form</h1>
     <form action="/" method="post">
         <label for="category">Категорія:</label>
-        <select class="form-control" id="category" name="category">
+        <select id="category" name="category">
             <option value="Python">Python</option>
             <option value="Java">Java</option>
             <option value=".NET">.NET</option>
