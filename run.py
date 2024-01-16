@@ -1,4 +1,3 @@
-import os
 import subprocess
 
 from flask import Flask, request, render_template, send_file
@@ -11,6 +10,10 @@ app.static_folder = "app/static"
 
 @app.route("/", methods=["GET", "POST"])
 def get_jobs():
+    """
+    Take job information from the form, get vacancies based on the data
+    and returns .csv file that contains main info about the jobs
+    """
     if request.method == "POST":
         category = request.form.get("category")
         additional_info = request.form.get("additional_info")

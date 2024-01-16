@@ -1,14 +1,10 @@
 import csv
 import time
-import logging
 
 from selenium.common.exceptions import NoSuchElementException
 from selenium.webdriver import Chrome
 from selenium.webdriver.common.by import By
 from selenium.webdriver.chrome.options import Options
-
-
-logger = logging.getLogger(__name__)
 
 
 URL = "https://jobs.dou.ua/"
