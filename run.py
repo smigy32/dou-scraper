@@ -1,3 +1,6 @@
+import os
+import subprocess
+
 from flask import Flask, request, render_template, send_file
 
 from app.selenium_job_finder.job_finder import find_jobs
@@ -17,10 +20,17 @@ def get_jobs():
                 "error.html", message="Категорія обов'язкова для заповнення!",
                 back_url="/"), 400
 
-        filename = find_jobs(
-            category=category, additional_info=additional_info)
-        return send_file(filename)
-    return render_template("form.html")
+        scrapping_technology = request.form.get("engine")
+        if scrapping_technology in ("Selenium", None):
+            filename = find_jobs(
+                category=category, additional_info=additional_info)
+            return send_file(filename)
+        else:
+            command = f"scrapy crawl dou -a category={category} -a additional_info={additional_info}"
+            subprocess.run(command, shell=True, cwd="app/scrapy_job_finder")
+
+    debug = request.args.get("debug")
+    return render_template("form.html", debug=debug)
 
 
 if __name__ == "__main__":

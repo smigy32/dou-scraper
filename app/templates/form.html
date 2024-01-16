@@ -35,6 +35,13 @@
         </select>
         <label for="additional_info">Додаткова інформація:</label>
         <input type="text" id="additional_info" name="additional_info"><br><br>
+        {% if debug %}
+            <label for="engine">Скрепінг технологія:</label>
+            <select id="engine" name="engine">
+                <option value="Selenium" selected="selected">Selenium</option>
+                <option value="Scrapy">Scrapy</option>
+            </select>
+        {% endif %}
         <input type="submit" value="Пошук">
     </form>
 </body>
