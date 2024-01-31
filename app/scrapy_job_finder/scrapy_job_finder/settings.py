@@ -9,8 +9,8 @@
 
 BOT_NAME = "scrapy_job_finder"
 
-SPIDER_MODULES = ["scrapy_job_finder.spiders"]
-NEWSPIDER_MODULE = "scrapy_job_finder.spiders"
+SPIDER_MODULES = ["app.scrapy_job_finder.scrapy_job_finder.spiders"]
+NEWSPIDER_MODULE = "app.scrapy_job_finder.scrapy_job_finder.spiders"
 
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
@@ -92,7 +92,7 @@ REQUEST_FINGERPRINTER_IMPLEMENTATION = "2.7"
 TWISTED_REACTOR = "twisted.internet.asyncioreactor.AsyncioSelectorReactor"
 FEED_EXPORT_ENCODING = "utf-8"
 FEEDS = {
-    '../../vacancies.csv': {
+    'vacancies.csv': {
         'format': 'csv',
         'overwrite': True,
     },

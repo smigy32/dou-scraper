@@ -44,7 +44,7 @@ def find_jobs(category: str, additional_info: str | None = None):
     vacancy_elements = driver.find_elements(By.CLASS_NAME, "l-vacancy")
     results = []
 
-    # Проходимося по кожному елементу вакансії та отримуємо назву та компанію
+    # Go through each element of the job and get the name and company
     for vacancy_element in vacancy_elements:
         title_element = vacancy_element.find_element(By.CLASS_NAME, "vt")
         title = title_element.text
@@ -60,9 +60,7 @@ def find_jobs(category: str, additional_info: str | None = None):
     filename = "vacancies.csv"
     with open(filename, "w", newline="", encoding="utf-8") as file:
         writer = csv.DictWriter(file, fieldnames=fieldnames)
-        writer.writeheader()  # Записуємо заголовки стовпців
-        writer.writerows(results)  # Записуємо рядки даних
+        writer.writeheader()  # Write down the column headers
+        writer.writerows(results)  # Write data lines
 
     driver.quit()
-
-    return filename

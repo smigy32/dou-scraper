@@ -1,55 +1,54 @@
 # DOU Scraper
 
-DOU Scraper - це проєкт, який надає можливість отримати дані з сайту [DOU](https://dou.ua/) (український ресурс для професіоналів з сфери розробки програмного забезпечення). Цей скрапер дозволяє отримувати інформацію про вакансії, що публікуються на DOU.
+DOU Scraper is a project that allows you to retrieve data from the [DOU](https://dou.ua/) website (a Ukrainian resource for software development professionals). This scraper enables you to gather information about job vacancies posted on DOU.
 
-## Властивості
+## Features
 
-- Отримання даних про вакансії: назва, посилання, назва компанії.
-- Завантаження отриманних даних в .csv файл
+- Retrieval of data about job vacancies: title, link, company name.
+- Downloading the obtained data as a .csv file.
 
-## Вимоги
+## Requirements
 
-Для використання DOU Scraper потрібно мати встановлені наступні компоненти:
+To use DOU Scraper, you need to have the following components installed:
 
 - Python 3.10
-- Бібліотеки, вказані у `requirements.txt`
+- Libraries specified in `requirements.txt`
 
-## Встановлення
+## Installation
 
-1. Склонуйте репозиторій:
+1. Clone the repository:
 
    ```bash
    git clone https://github.com/Smigy32/dou-scraper.git
    ```
 
-2. Перейдіть до директорії проекту:
+2. Navigate to the project directory:
 
    ```bash
    cd dou-scraper
    ```
 
-3. Створіть віртуальне оточення та активуйте його:
+3. Create a virtual environment and activate it:
 
    ```bash
    python3 -m venv venv
    source venv/bin/activate
    ```
 
-4. Встановіть залежності:
+4. Install dependencies:
 
    ```bash
    pip install -r requirements.txt
    ```
 
-## Використання
+## Usage
 
-Для використання DOU Scraper необхідно запустити `run.py`:
+To use DOU Scraper, run `run.py`:
 
 ```bash
 python run.py
 ```
-Після чого достатньо перейти за посиланням http://127.0.0.1:5000/
 
-За змовчуванням програма використовує **Seleninum** як скрепінг технологію.
-Якщо Ви хочете використовувати **Scrapy**, то перейдіть за посиланням  http://127.0.0.1:5000/?debug=1 та оберить **Scrapy** в дропдауні
+After that, simply go to the link <http://127.0.0.1:5000/>
 
+By default, the program uses **Selenium** as the scraping technology. If you want to use **Scrapy**, go to <http://127.0.0.1:5000/?debug=1> and select **Scrapy** from the dropdown.
