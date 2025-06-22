@@ -1,7 +1,10 @@
+import asyncio
+
 from flask import Flask, request, render_template, send_file
 
 from app.selenium_job_finder.job_finder import find_jobs
 from app.scrapy_job_finder.run_scraper import Scraper
+from app.bs4_job_finder.job_finder_async import fetch_all_jobs
 
 
 RESULT_FILE_NAME = "vacancies.csv"
@@ -28,10 +31,12 @@ def get_jobs():
         scrapping_technology = request.form.get("engine")
         if scrapping_technology in ("Selenium", None):
             find_jobs(category=category, additional_info=additional_info)
-        else:
+        elif scrapping_technology == "Scrapy":
             scraper = Scraper()
             scraper.run_spiders(category=category,
                                 additional_info=additional_info)
+        else:
+            asyncio.run(fetch_all_jobs(category, additional_info))
         return send_file(RESULT_FILE_NAME)
 
     debug = request.args.get("debug")
